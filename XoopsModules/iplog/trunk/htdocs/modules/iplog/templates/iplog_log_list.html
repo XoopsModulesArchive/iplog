@@ -1,0 +1,55 @@
+<h1><{$smarty.const._AM_IPLOG_LOG_H1}></h1>
+<p><{$smarty.const._AM_IPLOG_LOG_P}></p>
+<div style="clear:both; height:45px;">
+	<div style="float:right; height:45px;"><{$pagenav}></div>
+</div>
+
+<form action="<{$php_self}>" method='post'>
+<table>
+	<tr class="head">
+		<th><{$ip_id_th}></th>
+		<th><{$uname_th}></th>
+		<th><{$ip_th}></th>
+		<th><{$country_code_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_NAME}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_REGION}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_CONTINENT}></th>
+		<th><{$network_addy_th}></th>
+		<th><{$proxy_ip_th}></th>
+		<th><{$useragent_th}></th>
+		<th><{$start_th}></th>
+		<th><{$end_th}></th>
+		<th><{$online_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_ACTIONS}></th>
+	</tr>
+	<{foreach item=item from=$log}>
+	<tr class="<{cycle values="even,odd"}>">
+		<td align='center'><{$item.ip_id}></td>
+		<td align='center'><{$item.uname}></td>
+		<td align='center'><{$item.ip}></td>
+		<td align='center'><{$item.country_code}></td>
+		<td align='center'><{$item.country.name}></td>
+		<td align='center'><{$item.country.region}></td>
+		<td align='center'><{$item.country.contient}></td>
+		<td align='center'><{$item.network_addy}></td>
+		<td align='center'><{$item.proxy_ip}></td>
+		<td align='center'><{$item.useragent}></td>
+		<td align='right'><{$item.start}></td>
+		<td align='right'><{$item.end}></td>
+		<td align='right'><{$item.online}>&nbsp;<{$smarty.const._AM_IPLOG_SECONDS}></td>
+		<td align='right'><!-- <a href="<{$php_self}>?op=log&fct=edit&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><{$smarty.const._EDIT}></a>&nbsp;|&nbsp; --><a href="<{$php_self}>?op=log&fct=delete&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><{$smarty.const._DELETE}></a></td>
+	</tr>
+	<{/foreach}>
+	<tr class="foot">
+		<td colspan="14"><!-- <input type='submit' name='submit' value='<{$smarty.const._SUBMIT}>'/> --></td>
+	</tr>
+</table>
+<input type='hidden' name='op' value='log'/>
+<input type='hidden' name='fct' value='savelist'/>
+<input type='hidden' name='start' value='<{$start}>'/>
+<input type='hidden' name='limit' value='<{$limit}>'/>
+<input type='hidden' name='order' value='<{$order}>'/>
+<input type='hidden' name='sort' value='<{$sort}>'/>
+<input type='hidden' name='filter' value='<{$filter}>'/>
+</form>
+
