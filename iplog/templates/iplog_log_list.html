@@ -37,7 +37,7 @@
 		<td align='right'><{$item.start}></td>
 		<td align='right'><{$item.end}></td>
 		<td align='right'><{$item.online}>&nbsp;<{$smarty.const._AM_IPLOG_SECONDS}></td>
-		<td align='right'><!-- <a href="<{$php_self}>?op=log&fct=edit&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><{$smarty.const._EDIT}></a>&nbsp;|&nbsp; --><a href="<{$php_self}>?op=log&fct=delete&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><{$smarty.const._DELETE}></a></td>
+		<td align='center'><!-- <a href="<{$php_self}>?op=log&fct=edit&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"</a>&nbsp;|&nbsp; --><a href="<{$php_self}>?op=log&fct=delete&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a></td>
 	</tr>
 	<{/foreach}>
 	<tr class="foot">

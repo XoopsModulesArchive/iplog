@@ -90,15 +90,15 @@ case "log":
 			if (isset($_POST['id'])&&$id!=0) {
 				$log = $log_handler->get($id);
 				if (!$log_handler->delete($log)) {
-					redirect_header('index.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_FAILEDTODELETE);
+					redirect_header('dashboard.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_FAILEDTODELETE);
 					exit(0);
 				} else {
-					redirect_header('index.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_DELETED);
+					redirect_header('dashboard.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_DELETED);
 					exit(0);
 				}
 			} else {
 				$log = $log_handler->get($id);
-				xoops_confirm(array('id'=>$id, 'op'=>$_REQUEST['op'], 'fct'=>$_REQUEST['fct'], 'limit'=>$_REQUEST['limit'], 'start'=>$_REQUEST['start'], 'order'=>$_REQUEST['order'], 'sort'=>$_REQUEST['sort'], 'filter'=>$_REQUEST['filter']), 'index.php', sprintf(_AM_MSG_LOG_DELETE, $log->getVar('name')));
+				xoops_confirm(array('id'=>$id, 'op'=>$_REQUEST['op'], 'fct'=>$_REQUEST['fct'], 'limit'=>$_REQUEST['limit'], 'start'=>$_REQUEST['start'], 'order'=>$_REQUEST['order'], 'sort'=>$_REQUEST['sort'], 'filter'=>$_REQUEST['filter']), 'log.php', sprintf(_AM_MSG_LOG_DELETE, $log->getVar('name')));
 			}
 			break;
 	}
