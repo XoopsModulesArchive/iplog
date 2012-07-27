@@ -38,4 +38,7 @@ define('_AM_IPLOG_ADMIN_AVG_BY_CONTINENT', 'Adverage Number of minutes on per Co
 
 //About
 define('_AM_IPLOG_ABOUT_MAKEDONATE', 'Make donation to Chronolabs co-op');
-?>
+
+define('_AM_MSG_LOG_DELETE', 'Are you sure to delete?');
+define('_AM_MSG_LOG_DELETED', 'IP Entry successfully deleted!');
+

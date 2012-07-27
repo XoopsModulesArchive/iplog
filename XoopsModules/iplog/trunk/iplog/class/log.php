@@ -182,7 +182,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function insert($obj, $force = true) {
-    	xoops_load('cache');
+        xoops_load('xoopscache');
     	$ping = XoopsCache::read('iplog_ip_ping_unixtimes');
     	if (!is_array($ping)==true) {
     		$ping=array($obj->getIPAddy()=>microtime(true));
