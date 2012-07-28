@@ -1,33 +1,35 @@
 <?php
-// $Id: category.php 5204 2010-09-06 20:10:52Z mageg $
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author: XOOPS Foundation                                                  //
-// URL: http://www.xoops.org/                                                //
-// Project: The XOOPS Project                                                //
-// ------------------------------------------------------------------------- //
+/*
+ * Logs Guest and users IP Addresses for a period of time and provides
+ * basic statistic of them in XOOPS Copyright (C) 2012 Simon Roberts 
+ * Contact: wishcraft - simon@chronolabs.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * See /docs/license.pdf for full license.
+ * 
+ * Shouts:- 	Mamba (www.xoops.org), flipse (www.nlxoops.nl)
+ * 				Many thanks for your additional work with version 1.01
+ * 
+ * Version:		1.01 Final
+ * Published:	Chronolabs
+ * Download:	http://code.google.com/p/chronolabs
+ * This File:	log.php
+ * Description:	Log Admin Control Panel Browser
+ * Date:		28/07/2015 5:45PM AEST
+ * License:		GNU3
+ * 
+ */
 include 'header.php';
 xoops_cp_header();
 $indexAdmin = new ModuleAdmin();
@@ -50,7 +52,7 @@ case "log":
 
 			$criteria = new Criteria(1,1);
 			$ttl = $log_handler->getCount($criteria);
-			$sort = !empty($_REQUEST['sort'])?''.$_REQUEST['sort'].'':'start';
+			$sort = !empty($_REQUEST['sort'])?''.str_replace('_', '-', $_REQUEST['sort']).'':'start';
 			
 			$pagenav = new XoopsPageNav($ttl, $limit, $start, 'start', 'limit='.$limit.'&sort='.$sort.'&order='.$order.'&op='.$op.'&fct='.$fct.'&filter='.$filter.'&fct='.$fct.'&filter='.$filter);
 			$GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav());
@@ -90,15 +92,15 @@ case "log":
 			if (isset($_POST['id'])&&$id!=0) {
 				$log = $log_handler->get($id);
 				if (!$log_handler->delete($log)) {
-					redirect_header('dashboard.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_FAILEDTODELETE);
+					redirect_header('log.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_FAILEDTODELETE);
 					exit(0);
 				} else {
-					redirect_header('dashboard.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_DELETED);
+					redirect_header('log.php?op='.$op.'&fct=list&limit='.$limit.'&start='.$start.'&order='.$order.'&sort='.$sort.'&filter='.$filter, 10, _AM_MSG_LOG_DELETED);
 					exit(0);
 				}
 			} else {
 				$log = $log_handler->get($id);
-				xoops_confirm(array('id'=>$id, 'op'=>$_REQUEST['op'], 'fct'=>$_REQUEST['fct'], 'limit'=>$_REQUEST['limit'], 'start'=>$_REQUEST['start'], 'order'=>$_REQUEST['order'], 'sort'=>$_REQUEST['sort'], 'filter'=>$_REQUEST['filter']), 'log.php', sprintf(_AM_MSG_LOG_DELETE, $log->getVar('name')));
+				xoops_confirm(array('id'=>$id, 'op'=>$_REQUEST['op'], 'fct'=>$_REQUEST['fct'], 'limit'=>$_REQUEST['limit'], 'start'=>$_REQUEST['start'], 'order'=>$_REQUEST['order'], 'sort'=>$_REQUEST['sort'], 'filter'=>$_REQUEST['filter']), 'log.php', sprintf(_AM_MSG_LOG_DELETE, $log->getVar('uname'), $log->getIPAddy(), $log->getVar('ip_id')));
 			}
 			break;
 	}

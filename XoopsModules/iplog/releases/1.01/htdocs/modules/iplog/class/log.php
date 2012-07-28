@@ -1,5 +1,35 @@
 <?php
-
+/*
+ * Logs Guest and users IP Addresses for a period of time and provides
+* basic statistic of them in XOOPS Copyright (C) 2012 Simon Roberts
+* Contact: wishcraft - simon@chronolabs.com
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+* See /docs/license.pdf for full license.
+*
+* Shouts:- 	Mamba (www.xoops.org), flipse (www.nlxoops.nl)
+* 				Many thanks for your additional work with version 1.01
+*
+* Version:		1.01 Final
+* Published:	Chronolabs
+* Download:		http://code.google.com/p/chronolabs
+* This File:	log.php
+* Description:	Log Handler and Object Class for Module Instanciation
+* Date:			28/07/2015 5:45PM AEST
+* License:		GNU3
+*
+*/
 if (!defined('XOOPS_ROOT_PATH')) {
 	exit();
 }
@@ -55,10 +85,17 @@ class IplogLog extends XoopsObject
     function toArray() {
     	$ret = parent::toArray();
     	$ret['made'] = date(_DATESTRING, $this->getVar('made'));
-    	$countries_handler = xoops_getmodulehandler('countries', 'iplog');
-    	$country = $countries_handler->get($this->getVar('country_id'));
-    	if (is_object($country))
-    		$ret['country'] = $country->toArray();
+    	if ($this->getVar('country_id')!=0) {
+    		$countries_handler = xoops_getmodulehandler('countries', 'iplog');
+    		$country = $countries_handler->get($this->getVar('country_id'));
+    		if (is_object($country))
+    			$ret['country'] = $country->toArray();
+    	} else {
+    		$ret['country']['code'] = '--';
+    		$ret['country']['name'] = '--';
+    		$ret['country']['continent'] = '--';
+    		$ret['country']['region'] = '--';
+    	}
 		$comment_handler = xoops_gethandler('comment');
 		$module_handler = xoops_gethandler('module');
 		$GLOBALS['moduleIplog'] = $module_handler->getByDirname('iplog');
@@ -80,7 +117,7 @@ class IplogLog extends XoopsObject
 			$ret[str_replace('-', '_', $key)] = $value;
 		}
 		$ret['ip'] = $this->getIPAddy().' ('.$this->getIPType().')';
-		$ret['proxy_ip'] = $this->getProxyIPAddy();
+		$ret['proxy_ip'] = (strlen($this->getProxyIPAddy())?$this->getProxyIPAddy():'--');
 		$ret['start'] = date(_DATESTRING,$ret['start']);
 		$ret['end'] = date(_DATESTRING,$ret['end']);
 		if ($ret['uid']==0)
@@ -169,7 +206,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
 	
     function getFields() {
-    	return array('ip_id', 'uname', 'ip', 'country_code', 'name', 'region', 'contient', 'network_addy', 'useragent', 'proxy_ip', 'start', 'end', 'online');
+    	return array('ip_id', 'uname', 'ip', 'country_code', 'name', 'region', 'contient', 'network_addy', 'agent', 'proxy_ip', 'start', 'end', 'online');
     }
     
     function writeLog($data) {
@@ -182,7 +219,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function insert($obj, $force = true) {
-    	xoops_load('cache');
+    	xoops_load('xoopscache');
     	$ping = XoopsCache::read('iplog_ip_ping_unixtimes');
     	if (!is_array($ping)==true) {
     		$ping=array($obj->getIPAddy()=>microtime(true));

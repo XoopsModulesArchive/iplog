@@ -1,4 +1,21 @@
-Read Me First
-=============
+Version 1.01 Final
+==================
 
-Please make sure that you download the XOOPS Icon Set, and upload it to uploads/images directory
+	*	Simon Roberts (wishcraft) - www.chronolabs.com.au
+	* 	Michael Beck (mamba) - www.xoops.org
+	* 	Hans Jokshol (flipse) - www.nlxoops.nl
+
+Version 1.01 RC
+==================
+
+	*	Simon Roberts (wishcraft) - www.chronolabs.com.au
+	
+Version 1.01 Beta
+==================
+
+	*	Simon Roberts (wishcraft) - www.chronolabs.com.au
+	
+Version 1.01 Alpha
+==================
+
+	*	Simon Roberts (wishcraft) - www.chronolabs.com.au
