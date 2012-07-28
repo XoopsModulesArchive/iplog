@@ -43,47 +43,47 @@
  	if (count($log_handler->getNumberByCountry())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_COUNTS_BY_COUNTRY);
 	    foreach ($log_handler->getNumberByCountry() as $id => $value)
-		    $indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_COUNTRY, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+		    $indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_COUNTRY, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getNumberByRegion())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_COUNTS_BY_REGION);
 	    foreach ($log_handler->getNumberByRegion() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_REGION, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_REGION, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getNumberByContinent())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_COUNTS_BY_CONTINENT);
 	    foreach ($log_handler->getNumberByContinent() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_CONTINENT, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_COUNTS_BY_CONTINENT, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getTotalSecondsByCountry())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_SUM_BY_COUNTRY);
 	    foreach ($log_handler->getTotalSecondsByCountry() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_COUNTRY, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_COUNTRY, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getTotalSecondsByRegion())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_SUM_BY_REGION);
 	    foreach ($log_handler->getTotalSecondsByRegion() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_REGION, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_REGION, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getTotalSecondsByContinent())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_SUM_BY_CONTINENT);
 	    foreach ($log_handler->getTotalSecondsByContinent() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_CONTINENT, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_SUM_BY_CONTINENT, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
  	if (count($log_handler->getAdverageSecondsByCountry())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_AVG_BY_COUNTRY);
 	    foreach ($log_handler->getAdverageSecondsByCountry() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_COUNTRY, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_COUNTRY, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
  	}
     if (count($log_handler->getAdverageSecondsByRegion())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_AVG_BY_REGION);
 	    foreach ($log_handler->getAdverageSecondsByRegion() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_REGION, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_REGION, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
 	}
     if (count($log_handler->getAdverageSecondsByContinent())>1) {
 	    $indexAdmin->addInfoBox(_AM_IPLOG_ADMIN_AVG_BY_CONTINENT);
 	    foreach ($log_handler->getAdverageSecondsByContinent() as $id => $value)
-	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_CONTINENT, "<label>".$value['node'].": %s</label>", $value['total'], 'Green');
+	    	$indexAdmin->addInfoBoxLine(_AM_IPLOG_ADMIN_AVG_BY_CONTINENT, "<label>".($value['node']=='-'?_AM_IPLOG_UNKNOWN:$value['node']).": %s</label>", $value['total'], 'Green');
     }
     
     echo $indexAdmin->renderIndex();
