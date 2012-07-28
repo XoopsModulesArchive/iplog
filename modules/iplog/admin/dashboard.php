@@ -30,10 +30,10 @@
  * License:		GNU3
  * 
  */
-
 	include ('header.php');
 	xoops_loadLanguage('admin', 'profile');	
 	$log_handler = xoops_getmodulehandler('log', 'iplog');
+	echo $adminMenu->addNavigation('dashboard.php');	
 	
  	if (count($log_handler->getNumberByCountry())>1) {
 	    $adminMenu->addInfoBox(_AM_IPLOG_ADMIN_COUNTS_BY_COUNTRY);
