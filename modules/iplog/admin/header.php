@@ -97,5 +97,6 @@
 	$filter = !empty($_REQUEST['filter'])?''.$_REQUEST['filter'].'':'1,1';
 	$id = !empty($_REQUEST['id'])?(is_array($_REQUEST['id'])?array_unique($_REQUEST['id']):intval($_REQUEST['id'])):0;
 	
-	
+	xoops_cp_header();	
+	$adminMenu = new ModuleAdmin();
 ?>

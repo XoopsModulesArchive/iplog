@@ -32,19 +32,21 @@
  */
 $module_handler = xoops_gethandler('module');
 $GLOBALS['iplogModule'] = $module_handler->getByDirname('iplog');
+$sys_icons32 = $GLOBALS['iplogModule']->getInfo('system_icons32');
+$icons32 = $GLOBALS['iplogModule']->getInfo('icons32');
 $adminmenu = array();
 if (is_object($GLOBALS['iplogModule'])) {	
 	$adminmenu[0]['title'] = _MI_IPLOG_DASHBOARD;
-	$adminmenu[0]['icon'] = '../../'.$GLOBALS['iplogModule']->getInfo('system_icons32').'/home.png';
-	$adminmenu[0]['image'] = '../../'.$GLOBALS['iplogModule']->getInfo('system_icons32').'/home.png';
+	$adminmenu[0]['icon'] = '../../'.$sys_icons32.'/dashboard.png';
+	$adminmenu[0]['image'] = '../../'.$sys_icons32.'/dashboard.png';
 	$adminmenu[0]['link'] = "admin/dashboard.php";
 	$adminmenu[1]['title'] = _MI_IPLOG_LOG;
-	$adminmenu[1]['icon'] = '../../'.$GLOBALS['iplogModule']->getInfo('icons32').'/iplog.log.png';
-	$adminmenu[1]['image'] = '../../'.$GLOBALS['iplogModule']->getInfo('icons32').'/iplog.log.png';
+	$adminmenu[1]['icon'] = '../../'.$icons32.'/iplog.log.png';
+	$adminmenu[1]['image'] = '../../'.$icons32.'/iplog.log.png';
 	$adminmenu[1]['link'] = "admin/log.php";
 	$adminmenu[2]['title'] = _MI_IPLOG_ABOUT;
-	$adminmenu[2]['icon'] = '../../'.$GLOBALS['iplogModule']->getInfo('system_icons32').'/about.png';
-	$adminmenu[2]['image'] = '../../'.$GLOBALS['iplogModule']->getInfo('system_icons32').'/about.png';
+	$adminmenu[2]['icon'] = '../../'.$sys_icons32.'/about.png';
+	$adminmenu[2]['image'] = '../../'.$sys_icons32.'/about.png';
 	$adminmenu[2]['link'] = "admin/about.php";
 }
 ?>

@@ -31,10 +31,7 @@
  * 
  */
 include 'header.php';
-xoops_cp_header();
-$indexAdmin = new ModuleAdmin();
-
-echo $indexAdmin->addNavigation('log.php');	
+echo $adminMenu->addNavigation('log.php');	
 
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'log';
 $fct = isset($_REQUEST['fct']) ? $_REQUEST['fct'] : 'list';
