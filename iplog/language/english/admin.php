@@ -32,6 +32,7 @@
  */
 
 define("_AM_IPLOG_SECONDS", "Seconds");
+define("_AM_IPLOG_UNKNOWN", "Unknown");
 
 define("_AM_IPLOG_TH_IP_ID", "IP ID");
 define("_AM_IPLOG_TH_UNAME", "Username");

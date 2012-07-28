@@ -49,9 +49,9 @@ $modversion['system_icons32'] = 'Frameworks/moduleclasses/icons/32';
 $modversion['icons16'] = 'modules/'.$modversion['dirname'].'/images/icons/16';
 $modversion['icons32'] = 'modules/'.$modversion['dirname'].'/images/icons/32';
 
-$modversion['release_info'] = "Stable 2012/07/27";
+$modversion['release_info'] = "Stable 2012/07/28";
 $modversion['release_file'] = XOOPS_URL."/modules/profile/docs/changelog.txt";
-$modversion['release_date'] = "2012/07/27";
+$modversion['release_date'] = "2012/07/28";
 
 $modversion['author_realname'] = "Simon Antony Roberts";
 $modversion['author_website_url'] = "http://www.chronolabs.com.au";

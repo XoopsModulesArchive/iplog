@@ -343,7 +343,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getNumberByCountry() {
-    	$sql = 'SELECT DISTINCT `country-name` as node, count(*) as total FROM `'.$this->table.'`';
+    	$sql = 'SELECT DISTINCT `country-name` as node, count(*) as total FROM `'.$this->table.'` GROUP BY `country-name`';
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -353,7 +353,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getNumberByRegion() {
-    	$sql = 'SELECT DISTINCT `b`.`region` as node, count(*) as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';
+    	$sql = 'SELECT DISTINCT `b`.`region` as node, count(*) as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`region`';
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -363,7 +363,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getNumberByContinent() {
-    	$sql = 'SELECT DISTINCT `b`.`continent` as node, count(*) as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';
+    	$sql = 'SELECT DISTINCT `b`.`continent` as node, count(*) as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`continent`';
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -373,7 +373,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getTotalSecondsByCountry() {
-    	$sql = 'SELECT DISTINCT `country-name` as node, sum(`online`)/60 as total FROM `'.$this->table.'`';
+    	$sql = 'SELECT DISTINCT `country-name` as node, sum(`online`)/60 as total FROM `'.$this->table.'` GROUP BY `country-name`';
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -383,7 +383,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getTotalSecondsByRegion() {
-    	$sql = 'SELECT DISTINCT `b`.`region` as node, sum(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';;
+    	$sql = 'SELECT DISTINCT `b`.`region` as node, sum(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`region`';;
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -393,7 +393,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
         
     function getTotalSecondsByContinent() {
-    	$sql = 'SELECT DISTINCT `b`.`continent` as node, sum(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';;
+    	$sql = 'SELECT DISTINCT `b`.`continent` as node, sum(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`continent`';;
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -403,7 +403,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getAdverageSecondsByCountry() {
-    	$sql = 'SELECT DISTINCT `country-name` as node, avg(`online`)/60 as total FROM `'.$this->table.'`';
+    	$sql = 'SELECT DISTINCT `country-name` as node, avg(`online`)/60 as total FROM `'.$this->table.'` GROUP BY `country-name`';
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -413,7 +413,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getAdverageSecondsByRegion() {
-    	$sql = 'SELECT DISTINCT `b`.`region` as node, avg(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';;
+    	$sql = 'SELECT DISTINCT `b`.`region` as node, avg(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`region`';;
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -423,7 +423,7 @@ class IplogLogHandler extends XoopsPersistableObjectHandler
     }
     
     function getAdverageSecondsByContinent() {
-    	$sql = 'SELECT DISTINCT `b`.`continent` as node, avg(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id';;
+    	$sql = 'SELECT DISTINCT `b`.`continent` as node, avg(`online`)/60 as total FROM `'.$this->table.'` a INNER JOIN `'.$GLOBALS['xoopsDB']->prefix('iplog_countries').'` b ON a.country_id = b.country_id GROUP BY `b`.`continent`';;
     	$result = $GLOBALS['xoopsDB']->queryF($sql);
     	$ret = array();
     	while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
