@@ -1,0 +1,54 @@
+<!-- 
+-- Logs Guest and users IP Addresses for a period of time and provides
+-- basic statistic of them in XOOPS Copyright (C) 2012 Simon Roberts 
+-- Contact: wishcraft - simon@chronolabs.com
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+-- 
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+-- GNU General Public License for more details.
+-- 
+-- You should have received a copy of the GNU General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-- See /docs/license.pdf for full license.
+-- 
+-- Shouts:- 	Mamba (www.xoops.org), flipse (www.nlxoops.nl)
+-- 				Many thanks for your additional work with version 1.01
+-- 
+-- Version:		1.01 Final
+-- Published:	Chronolabs
+-- Download:	http://code.google.com/p/chronolabs
+-- This File:	help.html
+-- Description:	Online help Root Smarty Template File
+-- Date:		28/07/2015 5:45PM AEST
+-- License:		GNU3
+--> 
+<div id="help-template" class="outer">
+    <h1 class="head">Help:
+        <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/iplog/admin/dashboard.php"
+           title="Back to the administration of IP Log"> Profile Module <img src="<{xoAdminIcons home.png}>"
+                                                                         alt="Back to the Administration of IP Log"/>
+        </a></h1>
+    <!-- -----Help Content ---------- -->
+
+    <h4 class="odd">Description</h4>
+
+    <p class="even">
+        IP Log is a module to record either just Users or both Users and Anonymous guest IP Addresses.<br /><br />
+    </p>
+    <h4 class="odd">Install/uninstall</h4>
+
+    No special measures necessary, follow the standard installation process - extract the /htdocs folder into the
+    XOOPS ROOT Path. Install the module through Admin -> System Module -> Modules. If you need detailed
+    instructions on how to install a module, please see the <a href="http://goo.gl/adT2i">XOOPS Operations
+    Manual</a>.<br /><br />
+    Make sure you install the IPInfoDB.com API Key in preferences otherwise the module will not function,
+    correctly this is done by going to www.ipinfodb.com and signing up and once you have confirmed your 
+    email address you will be provided with your API Key which you paste into the field for it in preferences.</p>
+    <!-- -----Help Content ---------- -->
+</div>

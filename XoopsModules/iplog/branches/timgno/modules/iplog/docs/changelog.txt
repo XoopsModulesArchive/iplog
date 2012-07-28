@@ -1,0 +1,65 @@
+================================================
+== Version 1.01 Final - 2012/07/28 19:15 AEST ==
+================================================
+Changed:	/admin/about.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/dashboard.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/dashboard.php - Search for '-' in array and return Unknown constant (wishcraft)
+Changed:	/admin/footer.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/header.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/log.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/log.php - fix delete function (flipse)
+Changed:	/admin/log.php - fix delete query message to provide data output (flipse)
+Changed:	/admin/log.php - rename index.php to log.php in redirections (flipse)
+Changed:	/admin/menu.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/admin/menu.php - Framework System Icon Path Variable Added (wishcraft)
+Changed:	/class/log.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/class/log.php - Rename of Field Type 'useragent' to 'agent' as Db (wishcraft)
+Changed:	/class/log.php - xoops_load('cache') is deprecated [changed to standard] (wishcraft)
+Changed:	/class/log.php - Add Group By to SQL for statistics on dashboard (wishcraft)
+Changed:	/class/countries.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/include/functions.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/include/ip2locationlite.class.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/language/english/help/help.html - GNU3 header and shouts added to header (wishcraft)
+Changed:	/language/english/help/help.html - Content Updated to be revelent & IPInfoDB Instruction added (wishcraft)
+Changed:	/language/english/admin.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/language/english/admin.php - Unknown added to language for missing data (wishcraft)
+Changed:	/language/english/admin.php - Rename of Constant Type 'useragent' to 'agent' as Db (wishcraft)
+Changed:	/language/english/admin.php - add two missing language definitions (mamba)
+Changed:	/language/english/admin.php - add three sprintf variable to Delete Query. (wishcraft)
+Changed:	/language/english/modinfo.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/preloads/logger.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/sql/mysql.sql - GNU3 header and shouts added to header (wishcraft)
+Changed:	/templates/iplog_log_list.html - GNU3 header and shouts added to header (wishcraft)
+Changed:	/templates/iplog_log_list.html - replaced "delete" text with icon (mamba)
+Changed:	/templates/iplog_log_list.html - Fixed display of country code from country array (wishcraft)
+Changed:	/templates/iplog_log_list.html - Fixed display of continent from array (wishcraft)
+Changed:	/templates/iplog_log_list.html - Fixed display of User Agent from array (wishcraft)
+Changed:	/xoops_version.php - GNU3 header and shouts added to header (wishcraft)
+Changed:	/xoops_version.php - Framework System Icon Path Variable Added (wishcraft)
+Changed:	restructure folders (mamba)
+Moved:		/Frameworks/moduleclass/icons to /images/icons - move icons back to th module (mamba)
+
+================================================
+== Version 1.01 RC - 2012/07/27               ==
+================================================
+Changed:	/class/log.php - Ping time stored in Cache based on Session Expires Time (wishcraft)
+Changed:	/class/log.php - IP Type detection Improved (wishcraft)
+Changed:	/class/log.php - IP Type added to toArray() for IP Address (wishcraft)
+Changed:	/class/log.php - Support for anonymous user added (wishcraft)
+Changed:	/class/log.php - Contient renamed to Continent (wishcraft)
+Changed:	/admin/dashboard.php - Contient renamed to Continent (wishcraft)
+Changed:	/admin/dashboard.php - CONTIENT renamed to CONTINENT (wishcraft)
+Changed:	/language/english/admin.php - CONTIENT renamed to CONTINENT (wishcraft)
+Changed:	/language/english/modinfo.php - IP Type added to language defines (wishcraft)
+Changed:	/language/english/modinfo.php - Anonymous Preference Language Added (wishcraft)
+Changed:	/xoops_version.php - Anonymous Preference Added to allow guest IP to be recorded (wishcraft)
+Changed:	/preloader/logger.php - Anonymous Support added to checking for new object (wishcraft)
+Changed:	/template/iplog_log_list.html - CONTIENT renamed to CONTINENT (wishcraft)
+
+================================================
+==  Version 1.01 Beta - 2012/07/26            ==
+================================================
+Changed:	/class/log.php - End added to time added on new objects (wishcraft)
+Changed:	/include/ip2locationlite.class.php - Use of cURL via iplog_get_curl() function added (wishcraft)
+Changed:	/template/iplog_log_list.html - Table footer cells number fixed (colspan) (wishcraft)
+	
