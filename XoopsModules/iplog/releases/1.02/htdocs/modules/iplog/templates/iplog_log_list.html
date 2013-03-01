@@ -1,0 +1,85 @@
+<!-- 
+-- Logs Guest and users IP Addresses for a period of time and provides
+-- basic statistic of them in XOOPS Copyright (C) 2012 Simon Roberts 
+-- Contact: wishcraft - simon@chronolabs.com
+--
+-- This program is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+-- 
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+-- GNU General Public License for more details.
+-- 
+-- You should have received a copy of the GNU General Public License
+-- along with this program. If not, see <http://www.gnu.org/licenses/>.
+-- See /docs/license.pdf for full license.
+-- 
+-- Shouts:- 	Mamba (www.xoops.org), flipse (www.nlxoops.nl)
+-- 				Many thanks for your additional work with version 1.01
+-- 
+-- Version:		1.01 Final
+-- Published:	Chronolabs
+-- Download:	http://code.google.com/p/chronolabs
+-- This File:	iplog_log_list.html
+-- Description:	User admin Log browsing Control Panel Smarty Template
+-- Date:		28/07/2015 5:45PM AEST
+-- License:		GNU3
+--> 
+<h1><{$smarty.const._AM_IPLOG_LOG_H1}></h1>
+<p><{$smarty.const._AM_IPLOG_LOG_P}></p>
+<div style="clear:both; height:45px;">
+	<div style="float:right; height:45px;"><{$pagenav}></div>
+</div>
+
+<form action="<{$php_self}>" method='post'>
+<table>
+	<tr class="head">
+		<th><{$ip_id_th}></th>
+		<th><{$uname_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_IP}></th>
+		<th><{$country_code_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_NAME}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_REGION}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_CONTINENT}></th>
+		<th><{$network_addy_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_PROXY_IP}></th>
+		<th><{$agent_th}></th>
+		<th><{$start_th}></th>
+		<th><{$end_th}></th>
+		<th><{$online_th}></th>
+		<th><{$smarty.const._AM_IPLOG_TH_ACTIONS}></th>
+	</tr>
+	<{foreach item=item from=$log}>
+	<tr class="<{cycle values="even,odd"}>">
+		<td align='center'><{$item.ip_id}></td>
+		<td align='center'><{$item.uname}></td>
+		<td align='center'><{$item.ip}></td>
+		<td align='center'><{$item.country.code}></td>
+		<td align='center'><{$item.country.name}></td>
+		<td align='center'><{$item.country.region}></td>
+		<td align='center'><{$item.country.continent}></td>
+		<td align='center'><{$item.network_addy}></td>
+		<td align='center'><{$item.proxy_ip}></td>
+		<td align='center'><{$item.agent}></td>
+		<td align='right'><{$item.start}></td>
+		<td align='right'><{$item.end}></td>
+		<td align='right'><{$item.online}>&nbsp;<{$smarty.const._AM_IPLOG_SECONDS}></td>
+		<td align='center'><!-- <a href="<{$php_self}>?op=log&fct=edit&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"</a>&nbsp;|&nbsp; --><a href="<{$php_self}>?op=log&fct=delete&id=<{$item.ip_id}>&start=<{$start}>&limit=<{$limit}>&order=<{$order}>&sort=<{$sort}>&filter=<{$filter}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"/></a></td>
+	</tr>
+	<{/foreach}>
+	<tr class="foot">
+		<td colspan="14"><!-- <input type='submit' name='submit' value='<{$smarty.const._SUBMIT}>'/> --></td>
+	</tr>
+</table>
+<input type='hidden' name='op' value='log'/>
+<input type='hidden' name='fct' value='savelist'/>
+<input type='hidden' name='start' value='<{$start}>'/>
+<input type='hidden' name='limit' value='<{$limit}>'/>
+<input type='hidden' name='order' value='<{$order}>'/>
+<input type='hidden' name='sort' value='<{$sort}>'/>
+<input type='hidden' name='filter' value='<{$filter}>'/>
+</form>
+
