@@ -53,7 +53,7 @@
 	
 	if (!function_exists("iplog_getIP")) {
 		function iplog_getIP() {
-		    xoops_load('userUtility');
+            xoops_load('xoopsuserutility');
 		    return XoopsUserUtility::getIP(true);
 		}
 	}
